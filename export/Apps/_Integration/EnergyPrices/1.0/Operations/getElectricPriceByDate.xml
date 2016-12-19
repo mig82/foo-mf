@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service serviceGroup="" cachable="false" cacheduration="" endpoint="default" groupType="" id="getElectricPriceByDate" passwordencrypted="false" security="public" type="jsonConnector" smscode="" smsenabled="false">
+    <service-config>
+        <config-param api-version="" appid="" name="preprocessorname" value=""/>
+        <config-param api-version="" appid="" name="postprocessorname" value=""/>
+        <config-param api-version="" appid="" name="preprocessorJS" value="function determineTimeForElectric() {&#xA;&#xA;var dateInputStr=serviceInputParams.get('startDate');&#xA;var dateInput=new Date(dateInputStr);&#xA;var requestedYear = dateInput.getFullYear();&#xA;var requestedMonth = dateInput.getMonth()+1;&#xA;if(requestedMonth&gt;=7) {&#xA;  var timePeriod = requestedYear+'S2';&#xA;  serviceInputParams.put('time',timePeriod);&#xA;  var timePeriod2 = requestedYear+'S1'&#xA;  serviceInputParams.put('time',timePeriod2);&#xA;  var timePeriod3 = (requestedYear-1)+'S2'&#xA;  serviceInputParams.put('time',timePeriod3);&#xA;} else {&#xA;  var timePeriod = requestedYear+'S1';&#xA;  serviceInputParams.put('time',timePeriod);&#xA;  var timePeriod2 = (requestedYear-1)+'S2'&#xA;  serviceInputParams.put('time',timePeriod2);&#xA;  var timePeriod3 = (requestedYear-1)+'S1'&#xA;  serviceInputParams.put('time',timePeriod3);&#xA;}&#xA;&#xA;return true;&#xA;} determineTimeForElectric();"/>
+        <config-param api-version="" appid="" name="postprocessorJS" value=""/>
+        <config-param api-version="" appid="" name="endpointUrl" value="http://ec.europa.eu/eurostat/wdds/rest/data/v2.1/json/en/nrg_pc_204?precision=1&amp;product=6000&amp;unit=KWH&amp;tax=I_TAX&amp;geo=$geo&amp;currency=$currency&amp;consom=$consom&amp;time=$time"/>
+        <config-param api-version="" appid="" name="ignorehttpproxy" value="true"/>
+        <config-param api-version="" appid="" name="http.method" value="GET"/>
+        <config-param api-version="" appid="" name="dataObjectName" value=""/>
+        <config-param api-version="" appid="" name="sockettimeout" value=""/>
+        <config-param api-version="" appid="" name="responseEncoding" value="UTF-8"/>
+        <config-param api-version="" appid="" name="isembedxmlpresent" value="false"/>
+        <config-param api-version="" appid="" name="retrycount" value="0"/>
+    </service-config>
+    <service-input passthrough="false">
+        <header datatype="" name="" passthrough="false"/>
+        <param datatype="string" defaultvalue="" description="" encode="true" format="None" formatvalue="" name="geo" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="FR" value="">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="" description="" encode="true" format="None" formatvalue="" name="startDate" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="2015-07-05" value="">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="NAT" description="" encode="true" format="None" formatvalue="" name="currency" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="NAT" value="NAT">
+            <accessType></accessType>
+        </param>
+        <param datatype="number" defaultvalue="4161903" description="" encode="true" format="None" formatvalue="" name="consom" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="4161903" value="4161903">
+            <accessType></accessType>
+        </param>
+    </service-input>
+    <service-output passthrough="false">
+        <param datatype="string" defaultvalue="" description="" encode="true" format="None" formatvalue="" name="price" order="" passnull="false" sms-name="" src="value.0" sourcevalue="" srcformatvalue="" target="response" targetdatatype="java.lang.String" testvalue="" value="">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="" description="" encode="true" format="None" formatvalue="" name="timing" order="" passnull="false" sms-name="" src="dimension.time.category.label" sourcevalue="" srcformatvalue="" target="response" targetdatatype="java.lang.String" testvalue="" value="">
+            <accessType></accessType>
+        </param>
+    </service-output>
+</service>

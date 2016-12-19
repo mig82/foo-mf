@@ -1,0 +1,16 @@
+{
+    "icon": "icon.png",
+    "description": "EnergyCounts",
+    "intSvcs": [
+        {
+            "name": "EnergyPrices",
+            "version": "1.0"
+        }
+    ],
+    "orchSvcs": [
+        {
+            "name": "EnergyPricesCombined",
+            "version": "1.0"
+        }
+    ]
+}
