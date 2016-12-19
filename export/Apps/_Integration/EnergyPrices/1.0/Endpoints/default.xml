@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <endpoint encryptSecureInfo="false" name="default" type="JSON" url="http://ec.europa.eu/eurostat/wdds/">
+    <apiThrottling/>
     <config>
         <entry>
             <key>ignorehttpproxy</key>
