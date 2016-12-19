@@ -28,9 +28,6 @@
         <param datatype="number" defaultvalue="4141902" description="" encode="true" format="None" formatvalue="" name="consom" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="4141902" value="4141902">
             <accessType></accessType>
         </param>
-        <param datatype="string" defaultvalue="" description="" encode="true" format="None" formatvalue="" name="test" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="test" value="">
-            <accessType></accessType>
-        </param>
     </service-input>
     <service-output passthrough="false">
         <param datatype="string" defaultvalue="" description="" encode="true" format="None" formatvalue="" name="price" order="" passnull="false" sms-name="" src="value.0" sourcevalue="" srcformatvalue="" target="response" targetdatatype="java.lang.String" testvalue="" value="">
