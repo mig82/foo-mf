@@ -1,6 +1,6 @@
 {
-    "icon": "icon.png",
     "description": "EnergyCounts",
+    "icon": "icon.png",
     "intSvcs": [
         {
             "name": "EnergyPrices",
